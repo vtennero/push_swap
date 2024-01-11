@@ -11,8 +11,10 @@ OBJ_DIR = obj
 SRC_FILES = push_swap.c \
 operations.c \
 utils_lst.c \
+utils_debug.c \
 parsing.c \
 init_push.c \
+heuristic_sort.c \
 
 LIBFT_FILES = ft_isdigit.c \
 ft_isalnum.c \

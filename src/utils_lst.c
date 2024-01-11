@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 12:32:08 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/10 17:09:32 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:50:08 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,6 @@ void append_to_list(t_stack **head, long nbr)
             current = current->next;
         current->next = new_node;
         new_node->prev = current;
-    }
-}
-
-void print_stack(t_stack *head, char c)
-{
-    t_stack *current;
-	
-	current = head;
-	ft_printf("Stack %c\n", c);
-    while (current != NULL)
-	{
-        ft_printf("%d\n", current->nbr);
-        current = current->next;
     }
 }
 
@@ -150,4 +137,20 @@ int find_stack_min(t_stack *stack)
     }
 
     return min_nbr;
+}
+
+void stack_reallocate_index(t_stack *stack)
+{
+    long index;
+    t_stack *current;
+    
+    
+    current = stack;
+    index = 0;
+    while (current != NULL)
+    {
+        current->index = index;
+        index++;
+        current = current->next;
+    }
 }

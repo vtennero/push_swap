@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 16:32:10 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/10 16:22:46 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:37:18 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_stack			*create_new_node(long nbr, int index);
 void			append_to_list(t_stack **head, long nbr);
 void			print_stack(t_stack *head, char c);
 void			free_stack(t_stack *head);
+void 			stack_reallocate_index(t_stack *stack);
 
 /*
 ** ------------------------- INPUT CHECKS -------------------------
@@ -48,7 +49,9 @@ int				parse_args(int argc, char **argv);
 /*
 ** ------------------------- SOLVER -------------------------
 */
-void	init_push(t_stack *a, t_stack *b);
+// void	init_push(t_stack *a, t_stack *b);
+void 	init_push(t_stack **a, t_stack **b);
+void	find_cheapest_number(t_stack *a, t_stack *b);
 
 
 /*

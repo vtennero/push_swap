@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_push.c                                        :+:      :+:    :+:   */
+/*   utils_debug.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 16:02:25 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/11 11:37:01 by vitenner         ###   ########.fr       */
+/*   Created: 2024/01/11 10:39:37 by vitenner          #+#    #+#             */
+/*   Updated: 2024/01/11 10:41:53 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+# include "push_swap.h"
 
-// void	init_push(t_stack *a, t_stack *b)
-// {
-// 	op_pb(&a, &b);
-// 	op_pb(&a, &b);
-// 	// op_pb(&b, &a);
-// 	// op_pb(&b, &a);
-//     print_stack(a, 'a');
-//     print_stack(b, 'b');
-// }
-
-void init_push(t_stack **a, t_stack **b)
+void print_stack(t_stack *head, char c)
 {
-    op_pb(a, b);
-    op_pb(a, b);
+    t_stack *current;
+	
+	current = head;
+	ft_printf("Stack %c\n", c);
+    while (current != NULL)
+	{
+        ft_printf("%d index %d\n", current->nbr, current->index);
+        current = current->next;
+    }
 }

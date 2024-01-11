@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:23:04 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/10 16:35:30 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:54:09 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	op_ra(t_stack **a, int j)
 	(*a)->next = tmp;
 	*a = tmp->next;
 	tmp->next = NULL;
+	stack_reallocate_index(tmp);
 	if (j == 0)
 		write(1, "ra\n", 3);
 }
@@ -40,6 +41,7 @@ void	op_rb(t_stack **b, int j)
 	(*b)->next = tmp;
 	*b = tmp->next;
 	tmp->next = NULL;
+	stack_reallocate_index(tmp);
 	if (j == 0)
 		write(1, "rb\n", 3);
 }
@@ -69,6 +71,7 @@ void	op_sa(t_stack **head, int j)
 		third->prev = first;
 
 	*head = second; // Update the head of the list
+	stack_reallocate_index(*head);
 	if (j == 0)
 		write(1, "sa\n", 3);
 }
@@ -91,6 +94,7 @@ void	op_sb(t_stack **head, int j)
 		third->prev = first;
 
 	*head = second; // Update the head of the list
+	stack_reallocate_index(*head);
 	if (j == 0)
 		write(1, "sb\n", 3);
 }
@@ -115,6 +119,7 @@ void	op_rra(t_stack **a, int j)
 	tmp->next = *a;
 	(*a)->prev = tmp;
 	*a = tmp;
+	stack_reallocate_index(tmp);
 	if (j == 0)
 		write(1, "rra\n", 4);
 }
@@ -132,6 +137,7 @@ void	op_rrb(t_stack **a, int j)
 	tmp->next = *a;
 	(*a)->prev = tmp;
 	*a = tmp;
+	stack_reallocate_index(tmp);
 	if (j == 0)
 		write(1, "rra\n", 4);
 }
@@ -159,6 +165,8 @@ void	op_pa(t_stack **a, t_stack **b)
     if (*a)
         (*a)->prev = tmp;
     *a = tmp;
+	stack_reallocate_index(tmp);
+	stack_reallocate_index(*b);
 	write(1, "pa\n", 3);
 }
 
@@ -178,5 +186,7 @@ void op_pb(t_stack **a, t_stack **b)
     if (*b)
         (*b)->prev = tmp;
     *b = tmp;
+	stack_reallocate_index(tmp);
+	stack_reallocate_index(*a);
     write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:55:38 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/10 16:21:25 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:37:43 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	solver(t_stack *a, t_stack *b)
 {
-	init_push(a, b);
-	// find_cheapest_number();
+	init_push(&a, &b);
+	ft_printf("solveR: init push done\n");
+	print_stack(a, 'a');
+	print_stack(b, 'b');
+	find_cheapest_number(a, b);
 	// deal_with_last_three();
 	// push_back_to_stack_a();
 	// final_fixes();
