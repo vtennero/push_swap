@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 16:32:10 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/11 11:37:18 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:48:09 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <limits.h>
 # include "../libft/libft.h"
 
 

@@ -77,6 +77,8 @@ ft_lstnew.c \
 ft_lstdelone.c \
 ft_lstdel.c \
 ft_lstmap.c \
+ft_min.c \
+ft_max.c \
 
 # Adding directory prefix to source files
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES)) \

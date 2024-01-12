@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_debug.c                                      :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 10:39:37 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/12 12:03:21 by vitenner         ###   ########.fr       */
+/*   Created: 2024/01/12 11:55:51 by vitenner          #+#    #+#             */
+/*   Updated: 2024/01/12 11:58:18 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "libft.h"
 
-void print_stack(t_stack *head, char c)
+int	ft_min(int a, int b)
 {
-    t_stack *current;
-	
-	current = head;
-	ft_printf("Stack %c\n", c);
-    while (current != NULL)
-	{
-        ft_printf("%d\n", current->nbr);
-        // ft_printf("%d index %d\n", current->nbr, current->index);
-        current = current->next;
-    }
+	if (a < b)
+		return (a);
+	else
+		return (b);
 }
