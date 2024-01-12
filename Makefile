@@ -15,6 +15,7 @@ utils_debug.c \
 parsing.c \
 init_push.c \
 heuristic_sort.c \
+workflow.c
 
 LIBFT_FILES = ft_isdigit.c \
 ft_isalnum.c \

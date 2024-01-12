@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 16:32:10 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/12 15:48:09 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:49:10 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ t_stack			*ft_lstlast(t_stack *lst);
 int				ft_lstsize(t_stack *lst);
 t_stack			*create_new_node(long nbr, int index);
 void			append_to_list(t_stack **head, long nbr);
-void			print_stack(t_stack *head, char c);
 void			free_stack(t_stack *head);
 void 			stack_reallocate_index(t_stack *stack);
 
@@ -50,7 +49,24 @@ int				parse_args(int argc, char **argv);
 /*
 ** ------------------------- SOLVER -------------------------
 */
-// void	init_push(t_stack *a, t_stack *b);
+
+typedef struct s_workflow {
+	int sa;
+	int sb;
+	int ss;
+	int pa;
+	int pb;
+	int ra;
+	int rb;
+	int rr;
+	int rra;
+	int rrb;
+	int rrr;
+    int op_cost;
+    int next_nbr;
+} t_workflow;
+
+
 void 	init_push(t_stack **a, t_stack **b);
 void	find_cheapest_number(t_stack *a, t_stack *b);
 
@@ -69,10 +85,19 @@ void	op_rrb(t_stack **a, int j);
 void	op_pa(t_stack **a, t_stack **b);
 void	op_pb(t_stack **a, t_stack **b);
 
+/*
+** ------------------------- EXECUTE WORKFLOW/SOLVER -------------------------
+*/
+
+void execute_workflow(t_workflow *workflow, t_stack **a, t_stack **b);
 
 
 /*
 ** ------------------------- DEBUG -------------------------
 */
+
+void    debug_print_next_operations(t_workflow *workflow);
+void			print_stack(t_stack *head, char c);
+
 
 #endif
