@@ -6,20 +6,27 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:55:38 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/11 11:37:43 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/15 16:13:42 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	solver(t_stack *a, t_stack *b)
 {
+
+	t_workflow *workflow = init_workflow_struct();
+
 	init_push(&a, &b);
-	ft_printf("solveR: init push done\n");
-	print_stack(a, 'a');
-	print_stack(b, 'b');
-	find_cheapest_number(a, b);
-	// deal_with_last_three();
+	// ft_printf("solver: init push done\n");
+	debug_print_stack(a, 'a');
+	debug_print_stack(b, 'b');
+	find_cheapest_number(a, b, workflow); //change stack b
+	debug_print_stack(a, 'a');
+	debug_print_stack(b, 'b');
+	deal_with_last_three(&a, workflow);
+	debug_print_stack(a, 'a');
+	debug_print_stack(b, 'b');
 	// push_back_to_stack_a();
 	// final_fixes();
 }
@@ -47,8 +54,8 @@ int	main(int argc, char **argv)
         append_to_list(&stack_a, nbr);
     }
 
-    print_stack(stack_a, 'a');
-    print_stack(stack_b, 'b');
+    // debug_print_stack(stack_a, 'a');
+    // debug_print_stack(stack_b, 'b');
 
 
 	// solve

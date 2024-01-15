@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 12:32:08 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/11 10:50:08 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/15 16:04:29 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	ft_lstsize(t_stack *lst)
 
 //
 
-t_stack *create_new_node(long nbr, int index)
+t_stack *create_new_node(long nbr)
+// t_stack *create_new_node(long nbr, int index)
 {
     t_stack *new_node;
 	
@@ -47,7 +48,7 @@ t_stack *create_new_node(long nbr, int index)
         return NULL;
     }
     new_node->nbr = nbr;
-    new_node->index = index;
+    // new_node->index = index;
     new_node->next = NULL;
     new_node->prev = NULL;
     return new_node;
@@ -59,7 +60,8 @@ void append_to_list(t_stack **head, long nbr)
 	t_stack *current;
 
 	current = NULL;
-	new_node = create_new_node(nbr, ft_lstsize(*head));
+	// new_node = create_new_node(nbr, ft_lstsize(*head));
+	new_node = create_new_node(nbr);
     if (*head == NULL)
         *head = new_node;
     else
@@ -85,19 +87,19 @@ void	free_stack(t_stack *head)
     }
 }
 
-int	ft_find_index(t_stack *a, int nbr)
-{
-	int		i;
+// int	ft_find_index(t_stack *a, int nbr)
+// {
+// 	int		i;
 
-	i = 0;
-	while (a->nbr != nbr)
-	{
-		i++;
-		a = a->next;
-	}
-	a->index = 0;
-	return (i);
-}
+// 	i = 0;
+// 	while (a->nbr != nbr)
+// 	{
+// 		i++;
+// 		a = a->next;
+// 	}
+// 	a->index = 0;
+// 	return (i);
+// }
 
 int find_stack_max(t_stack *stack)
 {
@@ -139,18 +141,18 @@ int find_stack_min(t_stack *stack)
     return min_nbr;
 }
 
-void stack_reallocate_index(t_stack *stack)
-{
-    long index;
-    t_stack *current;
+// void stack_reallocate_index(t_stack *stack)
+// {
+//     long index;
+//     t_stack *current;
     
     
-    current = stack;
-    index = 0;
-    while (current != NULL)
-    {
-        current->index = index;
-        index++;
-        current = current->next;
-    }
-}
+//     current = stack;
+//     index = 0;
+//     while (current != NULL)
+//     {
+//         current->index = index;
+//         index++;
+//         current = current->next;
+//     }
+// }
