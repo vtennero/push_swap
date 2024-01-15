@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 16:32:10 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/15 16:06:37 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/15 16:22:42 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,14 +95,14 @@ void	op_rrr(t_stack **a, t_stack **b, int j);
 void	op_pa(t_stack **a, t_stack **b, int j);
 void	op_pb(t_stack **a, t_stack **b, int j);
 
-void	w_op_swap(t_stack **a, t_stack **b, int j);
-void	w_op_rotate(t_stack **a, t_stack **b, int j);
-void	w_op_rev_rotate(t_stack **a, t_stack **b, int j);
-void	w_op_push(t_stack **a, t_stack **b, int j);
-void	op_swap_list(t_stack **head);
-void	op_rotate_list(t_stack **head);
-void	op_reverse_rotate_list(t_stack **head);
-void	op_push_to_list(t_stack **a, t_stack **b);
+// void	w_op_swap(t_stack **a, t_stack **b, int j);
+// void	w_op_rotate(t_stack **a, t_stack **b, int j);
+// void	w_op_rev_rotate(t_stack **a, t_stack **b, int j);
+// void	w_op_push(t_stack **a, t_stack **b, int j);
+// void	op_swap_list(t_stack **head);
+// void	op_rotate_list(t_stack **head);
+// void	op_reverse_rotate_list(t_stack **head);
+// void	op_push_to_list(t_stack **a, t_stack **b);
 
 
 /*
