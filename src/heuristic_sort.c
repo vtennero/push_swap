@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:11:23 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/16 14:13:09 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:23:22 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,7 @@ void find_cheapest_number(t_stack **a, t_stack **b, t_workflow *workflow)
 {
     t_stack *current;
 
+    ft_printf("find_cheapest_number START\n");
     current = *a;
     workflow->next_nbr = current->nbr;
     while (ft_lstsize(*a) > 3)
@@ -211,6 +212,7 @@ void find_cheapest_number(t_stack **a, t_stack **b, t_workflow *workflow)
         execute_workflow(workflow, a, b);
         current = *a;
     }
+    ft_printf("find_cheapest_number END\n");
     // ft_printf("------------\n");
     // ft_printf("find_cheapest_number\n");
     // debug_print_stack(*a, 'a');
