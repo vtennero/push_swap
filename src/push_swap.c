@@ -6,31 +6,36 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:55:38 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/16 11:11:51 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:13:48 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	solver(t_stack *a, t_stack *b)
+int	solver(t_stack *a, t_stack *b)
 {
-
-	t_workflow *workflow = init_workflow_struct();
-
-	init_push(&a, &b);
-	// ft_printf("solver: init push done\n");
-	debug_print_stack(a, 'a');
-	debug_print_stack(b, 'b');
-	find_cheapest_number(a, b, workflow);
-	debug_print_stack(a, 'a');
-	debug_print_stack(b, 'b');
-	deal_with_last_three(&a, workflow);
-	debug_print_stack(a, 'a');
-	debug_print_stack(b, 'b');
-	// push_back_to_stack_a();
-	// final_fixes();
-	free(workflow);
-	workflow = NULL;
+	t_workflow *workflow;
+	
+	if (a)
+	{
+		workflow = init_workflow_struct();
+		if (!workflow)
+			return (0);
+		debug_print_stacks(a, b);
+		init_push(&a, &b);
+		debug_print_stacks(a, b);
+		find_cheapest_number(&a, &b, workflow);
+		debug_print_stacks(a, b);
+		deal_with_last_three(&a, workflow);
+		debug_print_stacks(a, b);
+		push_back_to_stack_a(&a, &b, workflow);
+		debug_print_stacks(a, b);
+		final_fixes(&a);
+		debug_print_stacks(a, b);
+		free(workflow);
+		workflow = NULL;
+	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -47,16 +52,20 @@ int	main(int argc, char **argv)
 	}
 
 	// allocate memory, check for error
+	// refactor to stack_a = build_stack_a
 	stack_a = NULL;
 	stack_b = NULL;
     for (int i = 1; i < argc; i++)
 	{
-        long nbr = ft_atol(argv[i]); // Convert string to long
-        append_to_list(&stack_a, nbr);
+        int nbr = ft_atoi(argv[i]); // Convert string to int
+		if (append_to_list(&stack_a, nbr) == NULL)
+		{
+			free_stack(stack_a);
+    		free_stack(stack_b);
+			break ;
+		}
     }
 
-    // debug_print_stack(stack_a, 'a');
-    // debug_print_stack(stack_b, 'b');
 
 
 	// solve
@@ -64,10 +73,9 @@ int	main(int argc, char **argv)
 
 
 	// free
+	// refactor to clear assets
     free_stack(stack_a);
     free_stack(stack_b);
-	stack_a = NULL;
-	stack_b = NULL;
 
 	return(0);
 }

@@ -6,11 +6,12 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 12:32:08 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/15 16:04:29 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:14:22 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
+
 
 // This function returns the last element of the stack.
 t_stack	*ft_lstlast(t_stack *lst)
@@ -38,8 +39,8 @@ int	ft_lstsize(t_stack *lst)
 
 //
 
-t_stack *create_new_node(long nbr)
-// t_stack *create_new_node(long nbr, int index)
+t_stack *create_new_node(int nbr)
+// t_stack *create_new_node(int nbr, int index)
 {
     t_stack *new_node;
 	
@@ -54,14 +55,16 @@ t_stack *create_new_node(long nbr)
     return new_node;
 }
 
-void append_to_list(t_stack **head, long nbr)
+t_stack *append_to_list(t_stack **head, int nbr)
 {
     t_stack *new_node;
 	t_stack *current;
 
 	current = NULL;
-	// new_node = create_new_node(nbr, ft_lstsize(*head));
 	new_node = create_new_node(nbr);
+    // new_node = NULL;
+    if (new_node == NULL)
+        return (NULL);
     if (*head == NULL)
         *head = new_node;
     else
@@ -72,6 +75,7 @@ void append_to_list(t_stack **head, long nbr)
         current->next = new_node;
         new_node->prev = current;
     }
+    return (*head);
 }
 
 void	free_stack(t_stack *head)
@@ -103,7 +107,7 @@ void	free_stack(t_stack *head)
 
 int find_stack_max(t_stack *stack)
 {
-    long    max_nbr;
+    int    max_nbr;
     t_stack *current;
 
     if (stack == NULL)
@@ -123,7 +127,7 @@ int find_stack_max(t_stack *stack)
 
 int find_stack_min(t_stack *stack)
 {
-    long min_nbr;
+    int min_nbr;
     t_stack *current;
 
     if (stack == NULL)
@@ -143,7 +147,7 @@ int find_stack_min(t_stack *stack)
 
 // void stack_reallocate_index(t_stack *stack)
 // {
-//     long index;
+//     int index;
 //     t_stack *current;
     
     

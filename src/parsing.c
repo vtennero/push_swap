@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 12:46:38 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/10 13:17:18 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:25:42 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	parse_arg(char *str)
             return (0);
         i++;
     }
+    if (ft_atol(str) != ft_atoi(str))
+        return(0);
     return (1);
 }
 
@@ -67,7 +69,7 @@ int	only_numbers_in_list(int argc, char **argv)
 
 int	parse_args(int argc, char **argv)
 {
-	if (!has_no_duplicates(argc, argv) || !only_numbers_in_list(argc, argv))
+	if (!has_no_duplicates(argc, argv) || !only_numbers_in_list(argc, argv) || argc < 3)
 		return (0);
 	return (1);
 }

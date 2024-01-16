@@ -16,7 +16,9 @@ parsing.c \
 init_push.c \
 heuristic_sort.c \
 workflow.c \
-sort_three.c 
+sort_three.c \
+push_back_to_stack_a.c \
+final_fixes.c 
 
 LIBFT_FILES = ft_isdigit.c \
 ft_isalnum.c \

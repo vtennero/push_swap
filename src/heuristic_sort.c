@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:11:23 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/16 11:13:15 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:13:09 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ int			calc_r_rotation_cost(t_stack *stack, int nbr)
 }
 
 
-int			find_nbr_position_in_b(t_stack *stack, long n)
+int			find_nbr_position_in_b(t_stack *stack, int n)
 {
 t_stack *current = stack;
-    long max = LONG_MIN;
-    long min = LONG_MAX;
-    long closest = LONG_MIN;
+    int max = INT_MIN;
+    int min = INT_MAX;
+    int closest = INT_MIN;
 
     // Iterate through the stack
     while (current != NULL)
@@ -102,7 +102,7 @@ int find_minimum(int arr[4], int size) {
 
 // CHATGPT TEST01
 
-void calculate_rotation_costs(t_stack *a, t_stack *b, long nbr, t_rotation_costs *costs)
+void calculate_rotation_costs(t_stack *a, t_stack *b, int nbr, t_rotation_costs *costs)
 {
     int b_closest_number;
 
@@ -145,7 +145,7 @@ int determine_min_cost_combination(t_rotation_costs costs, int minCost)
     return -1;
 }
 
-void update_workflow(t_workflow *workflow, int min_cost, long nbr, t_rotation_costs costs)
+void update_workflow(t_workflow *workflow, int min_cost, int nbr, t_rotation_costs costs)
 {
     int combination;
     
@@ -181,7 +181,7 @@ void update_workflow(t_workflow *workflow, int min_cost, long nbr, t_rotation_co
 
 
 
-int calc_min_cost_for_number(t_stack *a, t_stack *b, long nbr, t_workflow *workflow)
+int calc_min_cost_for_number(t_stack *a, t_stack *b, int nbr, t_workflow *workflow)
 {
     t_rotation_costs costs;
     int min_cost;
@@ -193,27 +193,27 @@ int calc_min_cost_for_number(t_stack *a, t_stack *b, long nbr, t_workflow *workf
     return 0;
 }
 
-void		find_cheapest_number(t_stack *a, t_stack *b, t_workflow *workflow)
+void find_cheapest_number(t_stack **a, t_stack **b, t_workflow *workflow)
 {
-	t_stack *current;
+    t_stack *current;
 
-	current = a;
-	workflow->next_nbr = current->nbr;
-    while (ft_lstsize(a) > 3)
+    current = *a;
+    workflow->next_nbr = current->nbr;
+    while (ft_lstsize(*a) > 3)
     {
-		while (current != NULL)
-		{
-			calc_min_cost_for_number(a, b, current->nbr, workflow);
-        	current = current->next;
-		}
-		workflow->pb = 1;
-	    optimize_workflow(workflow);
-	    execute_workflow(workflow, &a, &b);
-        current = a;
+        while (current != NULL)
+        {
+            calc_min_cost_for_number(*a, *b, current->nbr, workflow);
+            current = current->next;
+        }
+        workflow->pb = 1;
+        optimize_workflow(workflow);
+        execute_workflow(workflow, a, b);
+        current = *a;
     }
-    ft_printf("------------\n");
-    ft_printf("find_cheapest_number\n");
-    debug_print_stack(a, 'a');
-    debug_print_stack(b, 'b');
-    ft_printf("------------\n");
+    // ft_printf("------------\n");
+    // ft_printf("find_cheapest_number\n");
+    // debug_print_stack(*a, 'a');
+    // debug_print_stack(*b, 'b');
+    // ft_printf("------------\n");
 }

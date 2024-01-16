@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 16:32:10 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/15 16:22:42 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:26:29 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,16 @@
 
 typedef struct s_stack
 {
-	long			nbr;
+	int			nbr;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
 
 t_stack			*ft_lstlast(t_stack *lst);
 int				ft_lstsize(t_stack *lst);
-t_stack			*create_new_node(long nbr);
-// t_stack			*create_new_node(long nbr, int index);
-void			append_to_list(t_stack **head, long nbr);
+t_stack			*create_new_node(int nbr);
+t_stack 		*append_to_list(t_stack **head, int nbr);
 void			free_stack(t_stack *head);
-// void 			stack_reallocate_index(t_stack *stack);
 
 /*
 ** ------------------------- INPUT CHECKS -------------------------
@@ -74,10 +72,21 @@ typedef struct s_rotation_costs {
 } t_rotation_costs;
 
 
-void 		init_push(t_stack **a, t_stack **b);
-void		find_cheapest_number(t_stack *a, t_stack *b, t_workflow *workflow);
 t_workflow*	init_workflow_struct();
+void 		init_push(t_stack **a, t_stack **b);
+void 		find_cheapest_number(t_stack **a, t_stack **b, t_workflow *workflow);
 void		deal_with_last_three(t_stack **a, t_workflow *workflow);
+void 		push_back_to_stack_a(t_stack **a, t_stack **b, t_workflow *workflow);
+
+
+int			calc_rotation_cost(t_stack *stack, int nbr);
+int			calc_r_rotation_cost(t_stack *stack, int nbr);
+
+int			calc_optimal_ops(t_stack *a, int n);
+void		execute_rotate_a(t_stack **a, int ops);
+
+void		final_fixes(t_stack **a);
+
 
 
 /*
@@ -118,6 +127,7 @@ void optimize_workflow(t_workflow *workflow);
 */
 
 void	debug_print_stack(t_stack *head, char c);
+void	debug_print_stacks(t_stack *a, t_stack *b);
 void    debug_print_next_operations(t_workflow *workflow);
 void    debug_print_rotations_costs(t_rotation_costs *costs, int a_nbr, int b_nbr);
 void    debug_print_min_rotations_costs(int *cost);
