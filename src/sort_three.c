@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:50:26 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/16 15:58:00 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:15:03 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,23 @@
 
 void	sort_three(t_stack **a)
 {
-	int	top;
-	int	middle;
-	int	bottom;
-
-	top = (*a)->nbr;
-	middle = (*a)->next->nbr;
-	bottom = (*a)->next->next->nbr;
-	if (bottom > top && top > middle)
-		op_sa(a, NULL, 0);
-	else if (middle > top && top > bottom)
-		op_rra(a, NULL, 0);
-	else if (top > middle && bottom > middle)
+	if (find_stack_min(*a) == (*a)->nbr && (!stack_is_sorted_asc(*a)))
 	{
-		op_ra(a, NULL, 0);
+		op_rra(a, NULL, 0);
 		op_sa(a, NULL, 0);
 	}
-	else if (middle > bottom && bottom > top)
+	else if (find_stack_max(*a) == (*a)->nbr)
 	{
-		op_rra(a, NULL, 0);
-		op_sa(a, NULL, 0);
+		op_ra(a, NULL, 0);
+		if (!stack_is_sorted_asc(*a))
+			op_sa(a, NULL, 0);
+	}
+	else
+	{
+		if (find_nbr_index_in_stack(*a, find_stack_max(*a)) == 1)
+			op_rra(a, NULL, 0);
+		else if (!stack_is_sorted_asc(*a))
+			op_sa(a, NULL, 0);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 12:32:08 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/16 16:07:23 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:41:42 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,10 +114,23 @@ int find_stack_min(t_stack *stack)
 	min_nbr = stack->nbr;
 	current = stack;
 	while (current != NULL) {
-		if (current->nbr > min_nbr) {
+		if (current->nbr < min_nbr) {
 			min_nbr = current->nbr;
 		}
 		current = current->next;
 	}
 	return min_nbr;
+}
+
+int	find_nbr_index_in_stack(t_stack *a, int nbr)
+{
+	int		i;
+
+	i = 0;
+	while (a->nbr != nbr)
+	{
+		i++;
+		a = a->next;
+	}
+	return (i);
 }

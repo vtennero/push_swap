@@ -1,0 +1,210 @@
+pb
+pb
+-	-
+A	B
+-	-
+8	2
+9	6
+4	
+5	
+7	
+3	
+1	
+calculate_rotation_costs: nbr 8 should be above 6 in B
+min cost for 8 is 1
+calculate_rotation_costs: nbr 9 should be above 6 in B
+min cost for 9 is 1
+calculate_rotation_costs: nbr 4 should be above 2 in B
+min cost for 4 is 2
+calculate_rotation_costs: nbr 5 should be above 2 in B
+min cost for 5 is 3
+calculate_rotation_costs: nbr 7 should be above 6 in B
+min cost for 7 is 3
+calculate_rotation_costs: nbr 3 should be above 2 in B
+min cost for 3 is 2
+calculate_rotation_costs: nbr 1 should be above 6 in B
+min cost for 1 is 1
+find_cheapest_number: it's 8
+rb
+pb
+-	-
+A	B
+-	-
+9	8
+4	6
+5	2
+7	
+3	
+1	
+calculate_rotation_costs: nbr 9 should be above 8 in B
+min cost for 9 is 0
+calculate_rotation_costs: nbr 4 should be above 2 in B
+min cost for 4 is 2
+calculate_rotation_costs: nbr 5 should be above 2 in B
+min cost for 5 is 2
+calculate_rotation_costs: nbr 7 should be above 6 in B
+min cost for 7 is 3
+calculate_rotation_costs: nbr 3 should be above 2 in B
+min cost for 3 is 2
+calculate_rotation_costs: nbr 1 should be above 8 in B
+min cost for 1 is 1
+find_cheapest_number: it's 9
+pb
+-	-
+A	B
+-	-
+4	9
+5	8
+7	6
+3	2
+1	
+calculate_rotation_costs: nbr 4 should be above 2 in B
+min cost for 4 is 1
+calculate_rotation_costs: nbr 5 should be above 2 in B
+min cost for 5 is 2
+calculate_rotation_costs: nbr 7 should be above 6 in B
+min cost for 7 is 2
+calculate_rotation_costs: nbr 3 should be above 2 in B
+min cost for 3 is 2
+calculate_rotation_costs: nbr 1 should be above 9 in B
+min cost for 1 is 1
+find_cheapest_number: it's 4
+rrb
+pb
+-	-
+A	B
+-	-
+5	4
+7	2
+3	9
+1	8
+	6
+calculate_rotation_costs: nbr 5 should be above 4 in B
+min cost for 5 is 0
+calculate_rotation_costs: nbr 7 should be above 6 in B
+min cost for 7 is 2
+calculate_rotation_costs: nbr 3 should be above 2 in B
+min cost for 3 is 2
+calculate_rotation_costs: nbr 1 should be above 9 in B
+min cost for 1 is 3
+find_cheapest_number: it's 5
+pb
+-	-
+A	B
+-	-
+7	5
+3	4
+1	2
+	9
+	8
+	6
+-	-
+A	B
+-	-
+7	5
+3	4
+1	2
+	9
+	8
+	6
+ra
+sa
+-	-
+A	B
+-	-
+1	5
+3	4
+7	2
+	9
+	8
+	6
+find_b_nbr_pos_in_a: nbr 5 should be above 7 in B
+rra
+pa
+-	-
+A	B
+-	-
+5	4
+7	2
+1	9
+3	8
+	6
+find_b_nbr_pos_in_a: nbr 4 should be above 5 in B
+pa
+-	-
+A	B
+-	-
+4	2
+5	9
+7	8
+1	6
+3	
+find_b_nbr_pos_in_a: nbr 2 should be above 3 in B
+rra
+pa
+-	-
+A	B
+-	-
+2	9
+3	8
+4	6
+5	
+7	
+1	
+rra
+pa
+-	-
+A	B
+-	-
+9	8
+1	6
+2	
+3	
+4	
+5	
+7	
+find_b_nbr_pos_in_a: nbr 8 should be above 9 in B
+pa
+-	-
+A	B
+-	-
+8	6
+9	
+1	
+2	
+3	
+4	
+5	
+7	
+find_b_nbr_pos_in_a: nbr 6 should be above 7 in B
+rra
+pa
+-	-
+A	B
+-	-
+6	
+7	
+8	
+9	
+1	
+2	
+3	
+4	
+5	
+-	-
+A	B
+-	-
+6	
+7	
+8	
+9	
+1	
+2	
+3	
+4	
+5	
+ra
+ra
+ra
+ra
+123456789

@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:39:37 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/16 12:14:41 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:26:16 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,20 @@ void	debug_print_stack(t_stack *head, char c)
 	}
 }
 
+void	debug_print_stack_dense(t_stack *head)
+{
+	t_stack	*current;
+
+	current = head;
+	while (current != NULL)
+	{
+		ft_printf("%d ", current->nbr);
+		current = current->next;
+	}
+	ft_printf("\n");
+	// ft_printf("--------\n");
+}
+
 void	debug_print_next_operations(t_workflow *workflow)
 {
 	ft_printf("[DEBUG] Moving forward, we will carry the\
@@ -93,10 +107,6 @@ void	debug_print_next_operations(t_workflow *workflow)
 	ft_printf("[DEBUG] workflow->pb = %d\n", workflow->pb);
 	ft_printf("[DEBUG] workflow->next_nbr = %d\n", workflow->next_nbr);
 }
-/*void	debug_print_b_position(int n, int pos)
-{
-	ft_printf("[DEBUG] %d element in stack A should be at %d in B\n", n, pos);
-}*/
 
 void	debug_print_rotations_costs(t_rotation_costs *costs, int a_n, int b_n)
 {
@@ -133,4 +143,31 @@ void	debug_print_all_stack_elements(t_stack *stack)
 			ft_printf("[DEBUG] prev: NULL\n");
 		current = current->next;
 	}
+}
+
+int stack_is_sorted_asc(t_stack *stack)
+{
+    if (stack == NULL) return (1);
+
+    while (stack->next != NULL)
+    {
+        if (stack->nbr > stack->next->nbr)
+            return (0);
+        stack = stack->next;
+    }
+    return (1);
+}
+
+int stack_is_sorted_desc(t_stack *stack)
+{
+    if (stack == NULL)
+		return (1);
+
+    while (stack->next != NULL)
+    {
+        if (stack->nbr < stack->next->nbr)
+            return (0);
+        stack = stack->next;
+    }
+    return (1);
 }

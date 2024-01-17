@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 16:32:10 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/16 16:07:52 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:22:54 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_stack 		*append_to_list(t_stack **head, int nbr);
 void			free_stack(t_stack *head);
 int 			find_stack_max(t_stack *stack);
 int 			find_stack_min(t_stack *stack);
+int				find_nbr_index_in_stack(t_stack *a, int nbr);
 
 /*
 ** ------------------------- INPUT CHECKS -------------------------
@@ -124,5 +125,8 @@ void    debug_print_next_operations(t_workflow *workflow);
 void    debug_print_rotations_costs(t_rotation_costs *costs, int a_nbr, int b_nbr);
 void    debug_print_min_rotations_costs(int *cost);
 void    debug_print_all_stack_elements(t_stack *stack);
+void	debug_print_stack_dense(t_stack *head);
+int 	stack_is_sorted_asc(t_stack *stack);
+int 	stack_is_sorted_desc(t_stack *stack);
 
 #endif

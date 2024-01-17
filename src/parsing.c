@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 12:46:38 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/16 15:28:33 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:09:26 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ int	has_no_duplicates(int argc, char **argv)
 		j = i + 1;
 		while (j < argc)
 		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
-			{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (0);
-			}
 			j++;
 		}
 		i++;
