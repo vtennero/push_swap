@@ -9,16 +9,24 @@ OBJ_DIR = obj
 
 # Source files
 SRC_FILES = push_swap.c \
-operations.c \
-utils_lst.c \
-utils_debug.c \
+build_stack.c \
+cost_calculations.c \
+operations_push.c \
+operations_rot.c \
+operations_r_rot.c \
+operations_swap.c \
+utils_stack_one.c \
+utils_stack_two.c \
+utils_sort_a.c \
+utils_sort_b.c \
+utils_debug_one.c \
+utils_debug_two.c \
 parsing.c \
-init_push.c \
-heuristic_sort.c \
-workflow.c \
-sort_three.c \
-push_back_to_stack_a.c \
-final_fixes.c 
+workflow_execution.c \
+workflow_optimization.c \
+workflow_setting.c \
+sort_small.c \
+sort_big.c \
 
 LIBFT_FILES = ft_isdigit.c \
 ft_isalnum.c \

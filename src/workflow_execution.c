@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   workflow.c                                         :+:      :+:    :+:   */
+/*   workflow_execution.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:47:55 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/15 16:23:26 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:27:30 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-typedef void	(*t_operation_func)(t_stack **, t_stack **);
+typedef void	(*t_op_func)(t_stack **a, t_stack **b, int j);
 
-typedef struct s_operation {
-	t_operation_func		op;
-	t_stack					**arg1;
-	t_stack					**arg2;
-	int						count;
-}	t_operation;
+t_workflow	*init_workflow_struct(void)
+{
+	t_workflow	*new_struct;
+
+	new_struct = (t_workflow *)ft_calloc(1, sizeof(t_workflow));
+	if (new_struct)
+		new_struct->op_cost = -1;
+	return (new_struct);
+}
+
+void	update_workflow(t_workflow *w, int m_cost, int nbr, t_rot_costs *c)
+{
+	int	combination;
+
+	combination = determine_min_cost_combination(c, m_cost);
+	if (w->op_cost == -1 || m_cost < w->op_cost)
+	{
+		reset_workflow(w);
+		w->op_cost = m_cost;
+		w->next_nbr = nbr;
+		set_workflow_zero(combination, w, c);
+		set_workflow_one(combination, w, c);
+		set_workflow_two(combination, w, c);
+		set_workflow_three(combination, w, c);
+	}
+}
 
 void	reset_workflow(t_workflow *workflow)
 {
@@ -36,54 +56,6 @@ void	reset_workflow(t_workflow *workflow)
 	workflow->rrr = 0;
 	workflow->op_cost = -1;
 }
-
-void	optimize_s(t_workflow *workflow)
-{
-	int	min_value;
-
-	if (workflow->sa < workflow->sb)
-		min_value = workflow->sa;
-	else
-		min_value = workflow->sb;
-	workflow->ss = min_value;
-	workflow->sa -= min_value;
-	workflow->sb -= min_value;
-}
-
-void	optimize_r(t_workflow *workflow)
-{
-	int	min_value;
-
-	if (workflow->ra < workflow->rb)
-		min_value = workflow->ra;
-	else
-		min_value = workflow->rb;
-	workflow->rr = min_value;
-	workflow->ra -= min_value;
-	workflow->rb -= min_value;
-}
-
-void	optimize_rr(t_workflow *workflow)
-{
-	int	min_value;
-
-	if (workflow->rra < workflow->rrb)
-		min_value = workflow->rra;
-	else
-		min_value = workflow->rrb;
-	workflow->rrr = min_value;
-	workflow->rra -= min_value;
-	workflow->rrb -= min_value;
-}
-
-void	optimize_workflow(t_workflow *workflow)
-{
-	optimize_s(workflow);
-	optimize_r(workflow);
-	optimize_rr(workflow);
-}
-
-typedef void	(*t_op_func)(t_stack **a, t_stack **b, int j);
 
 void	run_workflow_for_one(t_op_func op, t_stack **a, t_stack **b, int *count)
 {

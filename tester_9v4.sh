@@ -16,7 +16,7 @@ execute_and_log() {
     last_line=$(./push_swap "$@" | tail -n 1)
 
     # Check if the last line is "123456789" for a success
-    if [[ $last_line == "123456789" ]]; then
+    if [[ $last_line == "1 2 3 4 5 6 7 8 9 " ]]; then
         # Increment success counter
         ((success_count++))
     else
