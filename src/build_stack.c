@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:29:51 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/19 16:17:51 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/21 10:46:00 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,20 @@ void	free_stack(t_stack *start)
 	{
 		temp = current;
 		current = current->next;
+		free(temp);
+	}
+	if (start)
+		free(start);
+}
+
+void	free_stack_m_failed(t_stack *start)
+{
+	t_stack	*temp;
+
+	while (start != NULL)
+	{
+		temp = start;
+		start = start->next;
 		free(temp);
 	}
 }

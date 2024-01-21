@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:55:38 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/19 16:13:07 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/21 10:45:46 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int	solver(t_stack *a, t_stack *b)
 			sort_three(&a);
 		else
 			sort_big(&a, &b);
+		free_stack(a);
 	}
 	return (1);
 }
@@ -39,13 +40,12 @@ static void	build_stacks_and_solve(int argc, char **argv)
 	{
 		if (append_to_list(&stack_a, ft_atoi(argv[i])) == NULL)
 		{
-			free_stack(stack_a);
+			free_stack_m_failed(stack_a);
 			break ;
 		}
 		i++;
 	}
 	solver(stack_a, stack_b);
-	free_stack(stack_a);
 }
 
 int	main(int argc, char **argv)

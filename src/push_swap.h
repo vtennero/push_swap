@@ -6,7 +6,7 @@
 /*   By: vitenner <vitenner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 16:32:10 by vitenner          #+#    #+#             */
-/*   Updated: 2024/01/19 16:29:04 by vitenner         ###   ########.fr       */
+/*   Updated: 2024/01/21 10:42:28 by vitenner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ t_stack			*ft_lstlast(t_stack *lst);
 int				ft_lstsize(t_stack *lst);
 t_stack			*append_to_list(t_stack **head, int nbr);
 void			free_stack(t_stack *head);
+void			free_stack_m_failed(t_stack *start);
 int				find_stack_max(t_stack *stack);
 int				find_stack_min(t_stack *stack);
 int				find_nbr_index_in_stack(t_stack *a, int nbr);
